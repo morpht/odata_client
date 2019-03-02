@@ -3,7 +3,8 @@
 [![Brainsum](https://www.drupal.org/files/styles/grid-3/public/brainsum-logo.jpg?itok=BdL0fZV3)](https://brainsum.com)
 
 ## Introduction
-OData client implements configuration entity for OData servers, IO functions to OData collections and Drupal format OdataQuery object.
+OData client implements configuration entity for OData servers,
+IO functions to OData collections and Drupal format OdataQuery object.
 
 ## Requirements
 The module requires the following library:
@@ -73,7 +74,8 @@ $result = $odata_client->post($data);
 ```
 
 #### Get data from collection:
-Return max 4 elements FirstName and LastName columns where FirstName is Teresa, sort by LastName descending: 
+Return max 4 elements FirstName and LastName columns where FirstName is Teresa,
+sort by LastName descending:
 ```php
 $query = \Drupal::service('odata_client.query');
 $query->connect('default')
@@ -87,3 +89,6 @@ $result = $query->execute();
 # Maintainers
 Current maintainer:
  - Jozsef Dudas (dj199) - https://www.drupal.org/user/387119
+
+#Supporting organizations: 
+Brainsum Kft. sponsored

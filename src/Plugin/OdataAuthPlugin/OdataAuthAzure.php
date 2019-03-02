@@ -36,12 +36,6 @@ class OdataAuthAzure extends OdataAuthPluginBase {
     try {
       $access_token = $provider->getAccessToken('client_credentials');
       return $access_token;
-      $values = $access_token->getValues();
-      return [
-        'token' => $access_token->getToken(),
-        'expires' => $access_token->getExpires(),
-        'token_type' => $values['token_type'],
-      ];
     }
     catch (\Throwable $t) {
       $serviceContainer->get('logger.factory')

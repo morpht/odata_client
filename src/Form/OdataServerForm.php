@@ -13,7 +13,6 @@ class OdataServerForm extends EntityForm {
 
   protected $odataPluginManager;
 
-
   /**
    * {@inheritdoc}
    */
@@ -236,13 +235,13 @@ class OdataServerForm extends EntityForm {
     switch ($status) {
       case SAVED_NEW:
         drupal_set_message($this->t('Created the %label Odata server.', [
-            '%label' => $odata_server->label(),
+          '%label' => $odata_server->label(),
         ]));
         break;
 
       default:
         drupal_set_message($this->t('Saved the %label Odata server.', [
-            '%label' => $odata_server->label(),
+          '%label' => $odata_server->label(),
         ]));
     }
     $form_state->setRedirectUrl($odata_server->toUrl('collection'));

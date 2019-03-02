@@ -209,6 +209,7 @@ class InputOutputService implements InputOutputServiceInterface {
             }
           });
           break;
+
         case 'basic':
           $user_name = $this->config->getUserName();
           $password = $this->config->getPassword();
@@ -217,6 +218,7 @@ class InputOutputService implements InputOutputServiceInterface {
             $request->headers['Authorization'] = 'Basic ' . base64_encode($user_name . ':' . $password);
           });
           break;
+
         default:
           $this->odataClient = new ODataClient($url);
       }
@@ -244,7 +246,7 @@ class InputOutputService implements InputOutputServiceInterface {
     $type = $this->serviceContainer->get('plugin.manager.odata_auth_plugin');
     $plugin = $type->createInstance($this->config->getTokenProvider());
     $this->token = $plugin->getAccessToken($this->config, $this->serviceContainer);
-    
+
     return $this->token;
   }
 
@@ -256,8 +258,8 @@ class InputOutputService implements InputOutputServiceInterface {
    */
   protected function getDefaults(): array {
     return !empty($this->odataType) ? [
-        '@odata.type' => $this->odataType,
-      ] : [];
+      '@odata.type' => $this->odataType,
+    ] : [];
   }
 
   /**

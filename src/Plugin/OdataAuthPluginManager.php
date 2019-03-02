@@ -11,7 +11,6 @@ use Drupal\Core\Extension\ModuleHandlerInterface;
  */
 class OdataAuthPluginManager extends DefaultPluginManager {
 
-
   /**
    * Constructs a new OdataAuthPluginManager object.
    *
@@ -23,7 +22,9 @@ class OdataAuthPluginManager extends DefaultPluginManager {
    * @param \Drupal\Core\Extension\ModuleHandlerInterface $module_handler
    *   The module handler to invoke the alter hook with.
    */
-  public function __construct(\Traversable $namespaces, CacheBackendInterface $cache_backend, ModuleHandlerInterface $module_handler) {
+  public function __construct(\Traversable $namespaces,
+    CacheBackendInterface $cache_backend,
+    ModuleHandlerInterface $module_handler) {
     parent::__construct('Plugin/OdataAuthPlugin', $namespaces, $module_handler, 'Drupal\odata_client\Plugin\OdataAuthPluginInterface', 'Drupal\odata_client\Annotation\OdataAuthPlugin');
 
     $this->alterInfo('odata_client_odata_auth_plugin_info');
@@ -41,7 +42,7 @@ class OdataAuthPluginManager extends DefaultPluginManager {
     foreach ($this->getDefinitions() as $key => $definition) {
       $option_list[$key] = $definition['label'];
     }
-    
+
     return $option_list;
   }
 

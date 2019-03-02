@@ -11,8 +11,14 @@ use Drupal\Core\DependencyInjection\Container;
  */
 interface OdataAuthPluginInterface extends PluginInspectionInterface {
 
-
+  /**
+   * Return the access token.
+   *
+   * @param \Drupal\odata_client\Entity\OdataServerInterface $config
+   *   The config service.
+   * @param \Drupal\Core\DependencyInjection\Container $serviceContainer
+   *   The dependency container.
+   */
   public function getAccessToken(OdataServerInterface $config,
     Container $serviceContainer);
-
 }
