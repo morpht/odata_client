@@ -234,13 +234,13 @@ class OdataServerForm extends EntityForm {
 
     switch ($status) {
       case SAVED_NEW:
-        drupal_set_message($this->t('Created the %label Odata server.', [
+        $this->messenger()->addMessage($this->t('Created the %label Odata server.', [
           '%label' => $odata_server->label(),
         ]));
         break;
 
       default:
-        drupal_set_message($this->t('Saved the %label Odata server.', [
+        $this->messenger()->addMessage($this->t('Saved the %label Odata server.', [
           '%label' => $odata_server->label(),
         ]));
     }
