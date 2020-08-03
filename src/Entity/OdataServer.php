@@ -35,6 +35,24 @@ use Drupal\Core\Config\Entity\ConfigEntityBase;
  *     "edit-form" = "/admin/structure/odata_server/{odata_server}/edit",
  *     "delete-form" = "/admin/structure/odata_server/{odata_server}/delete",
  *     "collection" = "/admin/structure/odata_server"
+ *   },
+ *   config_export = {
+ *     "id",
+ *     "label",
+ *     "url",
+ *     "client_id",
+ *     "client_secret",
+ *     "redirect_uri",
+ *     "url_authorize",
+ *     "url_access_token",
+ *     "token_provider",
+ *     "tenant",
+ *     "url_resource_owner_details",
+ *     "user_name",
+ *     "password",
+ *     "odata_type",
+ *     "default_collection",
+ *     "authentication_method",
  *   }
  * )
  */
