@@ -14,9 +14,9 @@ interface InputOutputServiceInterface {
    *   The configuration entity name.
    *
    * @return \Drupal\odata_client\Odata\InputOutputServiceInterface
-   *   This class.
+   *   This class or null.
    */
-  public function connect(string $config_name): InputOutputServiceInterface;
+  public function connect(string $config_name):? InputOutputServiceInterface;
 
   /**
    * Set the OData type on OData server.

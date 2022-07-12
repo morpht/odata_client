@@ -71,21 +71,23 @@ class InputOutputService implements InputOutputServiceInterface {
   /**
    * {@inheritdoc}
    */
-  public function connect(string $config_name): InputOutputServiceInterface {
+  public function connect(string $config_name):? InputOutputServiceInterface {
     $this->config = $this->serviceContainer
       ->get('entity_type.manager')
       ->getStorage('odata_server')
       ->load($config_name);
-    if ($this->config) {
-      $this->access();
-      if (!empty($this->odataClient)) {
-        $this->defaultCollectionName = $this->config->getDefaultCollection();
-        if (!empty($this->defaultCollectionName)) {
-          $this->collection = $this->odataClient->from($this->defaultCollectionName);
-        }
-        $this->odataType = $this->config->getOdataType();
-      }
+    if (empty($this->config)) {
+      return NULL;
     }
+    $this->access();
+    if (empty($this->odataClient)) {
+      return NULL;
+    }
+    $this->defaultCollectionName = $this->config->getDefaultCollection();
+    if (!empty($this->defaultCollectionName)) {
+      $this->collection = $this->odataClient->from($this->defaultCollectionName);
+    }
+    $this->odataType = $this->config->getOdataType();
 
     return $this;
   }
