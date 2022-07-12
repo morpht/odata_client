@@ -192,6 +192,25 @@ class InputOutputService implements InputOutputServiceInterface {
   }
 
   /**
+   * {@inheritdoc}
+   */
+  public function patch(array $data, $entity_key) {
+    $json = json_encode(array_merge($this->getDefaults(), $data));
+    try {
+      $this->collection->entityKey = $entity_key;
+      $result = $this->collection->patch($json);
+      return $result;
+    }
+    catch (\Throwable $t) {
+      $this->serviceContainer->get('logger.factory')
+        ->get('odata_client')
+        ->error($t->getMessage());
+    }
+
+    return NULL;
+  }
+
+  /**
    * Access to OData server.
    */
   protected function access() {

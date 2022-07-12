@@ -113,4 +113,14 @@ interface InputOutputServiceInterface {
    */
   public function post(array $data);
 
+  /**
+   * Execute the query as a "PATCH" request.
+   *
+   * @param array $data
+   *   The data to patch to OData server.
+   * @param string $entity_key
+   *   The entity key to patch to.
+   */
+  public function patch(array $data, $entity_key);
+
 }
