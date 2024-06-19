@@ -11,7 +11,7 @@
     "source": "http://cgit.drupalcode.org/odata_client"
   },
   "require": {
-    "saintsystems/odata-client": "^0.6",
+    "saintsystems/odata-client": "dev-feature/remove-guzzle-hard-dependency",
     "league/oauth2-client": "^2.4",
     "thenetworg/oauth2-azure": "^2.1"
   }
